@@ -1,0 +1,10 @@
+streamlit
+torch
+pytesseract
+Pillow
+transformers
+numpy
+python-docx
+PyMuPDF
+google-generativeai
+psycopg2-binary
