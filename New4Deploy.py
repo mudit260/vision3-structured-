@@ -15,12 +15,9 @@ from urllib.parse import urlparse
 from datetime import datetime
 
 # === CONFIG ===
-GEMINI_API_KEY = "AIzaSyCK0zO_Sgwjf5V9Ml6NLdWs3Q0yboNWWT8"
-genai.configure(api_key=GEMINI_API_KEY)
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+DATABASE_URL = os.environ.get("DATABASE_URL")
 model = genai.GenerativeModel("models/gemma-3n-e4b-it")
-
-# === NEON DB URL ===
-DATABASE_URL = "postgresql://username:password@ep-yourhost.ap-southeast-1.aws.neon.tech:5432/yourdb"
 
 def get_db_connection():
     return psycopg2.connect(DATABASE_URL, sslmode='require')
@@ -159,3 +156,4 @@ Return only the well-structured formatted result.
     # Step 6: Downloads
     st.download_button("📄 Download Raw Prescription", data=open(raw_docx_path, "rb").read(), file_name="raw_prescription.docx")
     st.download_button("📑 Download Structured Prescription", data=open(structured_docx_path, "rb").read(), file_name="structured_prescription.docx")
+
