@@ -2,7 +2,7 @@ streamlit
 torch
 pytesseract
 Pillow
-transformers
+transformers>=4.30.0
 numpy
 python-docx
 PyMuPDF
